@@ -21,9 +21,13 @@
             PrintNaturalNumsDesc(20);
             Console.WriteLine();
             PrintNaturalNumsDesc(10);
+            Console.WriteLine();
+
 
             //4
-            IsPalindrome("RADAR");
+            Console.WriteLine(IsPalindrome("RADAR"));
+            Console.WriteLine(IsPalindrome("RADARR"));
+            
         }
         //1
         public static int LastWordLength(string s)
@@ -56,14 +60,19 @@
         //4
         public static bool IsPalindrome(string word)
         {
-            if (word.Length < 1)
+            string newWord = word.Trim().ToLower();
+            if (newWord.Length <= 1)
             {
                 return true;
             }
 
-            if (word[0] != word[word.Length -])
+            if (newWord[0] != newWord[newWord.Length - 1])
             {
+                return false;
             }
+            string shortenedWord = newWord.Substring(1, newWord.Length - 2);
+            return IsPalindrome(shortenedWord);
+            
         }
 
     }
